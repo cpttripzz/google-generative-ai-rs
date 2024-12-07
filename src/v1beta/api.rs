@@ -60,7 +60,16 @@ pub struct Client {
 ///         See Issue #26 - 'Code tidy and improvement'
 impl Client {
     /// Creates a default new public API client.
-
+    pub fn new_from_response_type(response_type: ResponseType, model:String,api_key: String) -> Self {
+        let url = Url::new(&model, api_key, &response_type);
+        Self {
+            url: url.url,
+            model,
+            region: None,
+            project_id: None,
+            response_type,
+        }
+    }
     /// Create a new public API client for a specified model.
     pub fn new_from_model_response_type(
         model: String,
