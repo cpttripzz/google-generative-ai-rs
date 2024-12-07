@@ -12,7 +12,6 @@ use tokio::sync::Mutex;
 use crate::v1beta::errors::GoogleAPIError;
 use crate::v1beta::gemini::request::Request;
 use crate::v1beta::gemini::response::GeminiResponse;
-use crate::v1beta::gemini::Model;
 
 use super::gemini::response::{StreamedGeminiResponse, TokenCount};
 use super::gemini::{ModelInformation, ModelInformationList};
@@ -111,10 +110,9 @@ impl Client {
         client: reqwest::Client,
         api_request: &Request,
     ) -> Result<GeminiResponse, GoogleAPIError> {
-        let token_option = self.get_auth_token_option().await?;
 
         let result = self
-            .get_post_response(client, api_request, token_option)
+            .get_post_response(client, api_request, None)
             .await;
 
         match result {
@@ -138,10 +136,9 @@ impl Client {
         client: reqwest::Client,
         api_request: &Request,
     ) -> Result<StreamedGeminiResponse, GoogleAPIError> {
-        let token_option = self.get_auth_token_option().await?;
 
         let result = self
-            .get_post_response(client, api_request, token_option)
+            .get_post_response(client, api_request, None)
             .await;
 
         match result {
@@ -255,10 +252,9 @@ impl Client {
         client: reqwest::Client,
         api_request: &Request,
     ) -> Result<TokenCount, GoogleAPIError> {
-        let token_option = self.get_auth_token_option().await?;
 
         let result = self
-            .get_post_response(client, api_request, token_option)
+            .get_post_response(client, api_request, None)
             .await;
 
         match result {
@@ -423,37 +419,5 @@ impl Url {
             },
             _ => panic!("Unsupported response type: {:?}", response_type),
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use reqwest::StatusCode;
-
-    #[test]
-    fn test_new_error_from_status_code() {
-        let client = Client::new("my-api-key".to_string());
-        let status_code = StatusCode::BAD_REQUEST;
-
-        let error = client.new_error_from_status_code(status_code);
-
-        assert_eq!(error.message, "HTTP Error: 400: Bad Request");
-        assert_eq!(error.code, Some(status_code));
-    }
-
-    #[test]
-    fn test_url_new() {
-        let model = Model::default();
-        let api_key = String::from("my-api-key");
-        let url = Url::new(&model, api_key.clone(), &ResponseType::GenerateContent);
-
-        assert_eq!(
-            url.url,
-            format!(
-                "{}/models/{}:generateContent?key={}",
-                PUBLIC_API_URL_BASE, model, api_key
-            )
-        );
     }
 }

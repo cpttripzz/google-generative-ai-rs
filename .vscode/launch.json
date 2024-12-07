@@ -1,0 +1,323 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'google_generative_ai_rs'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "google_generative_ai_rs",
+                    "kind": "lib"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'count_tokens'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=count_tokens",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "count_tokens",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'count_tokens'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=count_tokens",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "count_tokens",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'get_model'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=get_model",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "get_model",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'get_model'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=get_model",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "get_model",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'get_models'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=get_models",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "get_models",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'get_models'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=get_models",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "get_models",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'text_request'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=text_request",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "text_request",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'text_request'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=text_request",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "text_request",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'text_request_stream'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=text_request_stream",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "text_request_stream",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'text_request_stream'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=text_request_stream",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "text_request_stream",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'vertex_count_tokens'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=vertex_count_tokens",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "vertex_count_tokens",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'vertex_count_tokens'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=vertex_count_tokens",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "vertex_count_tokens",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'vertex_text_request'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=vertex_text_request",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "vertex_text_request",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'vertex_text_request'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=vertex_text_request",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "vertex_text_request",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'vertex_text_request_stream'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=vertex_text_request_stream",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "vertex_text_request_stream",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'vertex_text_request_stream'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=vertex_text_request_stream",
+                    "--package=google-generative-ai-rs"
+                ],
+                "filter": {
+                    "name": "vertex_text_request_stream",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
