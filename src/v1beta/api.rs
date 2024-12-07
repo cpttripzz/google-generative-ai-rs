@@ -50,7 +50,7 @@ use crate::v1beta::gemini::ResponseType;
 /// Manages the specific API connection
 pub struct Client {
     pub url: String,
-    pub model: Model,
+    pub model: String,
     pub region: Option<String>,
     pub project_id: Option<String>,
     pub response_type: ResponseType,
@@ -61,41 +61,10 @@ pub struct Client {
 ///         See Issue #26 - 'Code tidy and improvement'
 impl Client {
     /// Creates a default new public API client.
-    pub fn new(api_key: String) -> Self {
-        let url = Url::new(&Model::default(), api_key, &ResponseType::GenerateContent);
-        Self {
-            url: url.url,
-            model: Model::default(),
-            region: None,
-            project_id: None,
-            response_type: ResponseType::GenerateContent,
-        }
-    }
-    /// Creates a default new public API client for a specified response type.
-    pub fn new_from_response_type(response_type: ResponseType, api_key: String) -> Self {
-        let url = Url::new(&Model::default(), api_key, &response_type);
-        Self {
-            url: url.url,
-            model: Model::default(),
-            region: None,
-            project_id: None,
-            response_type,
-        }
-    }
-    /// Create a new public API client for a specified model.
-    pub fn new_from_model(model: Model, api_key: String) -> Self {
-        let url = Url::new(&model, api_key, &ResponseType::GenerateContent);
-        Self {
-            url: url.url,
-            model,
-            region: None,
-            project_id: None,
-            response_type: ResponseType::GenerateContent,
-        }
-    }
+
     /// Create a new public API client for a specified model.
     pub fn new_from_model_response_type(
-        model: Model,
+        model: String,
         api_key: String,
         response_type: ResponseType,
     ) -> Self {
@@ -425,7 +394,7 @@ pub(crate) struct Url {
     pub url: String,
 }
 impl Url {
-    pub(crate) fn new(model: &Model, api_key: String, response_type: &ResponseType) -> Self {
+    pub(crate) fn new(model: &str, api_key: String, response_type: &ResponseType) -> Self {
         let base_url = PUBLIC_API_URL_BASE.to_owned();
         match response_type {
             ResponseType::GenerateContent => Self {
