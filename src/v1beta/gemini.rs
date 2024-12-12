@@ -346,7 +346,7 @@ pub mod response {
     use core::fmt;
     use futures::Stream;
     use reqwest_streams::error::StreamBodyError;
-    use serde::Deserialize;
+    use serde::{Deserialize, Serialize};
     use std::pin::Pin;
 
     use super::{
@@ -378,7 +378,7 @@ pub mod response {
         pub response_stream: Option<ResponseJsonStream>,
     }
 
-    #[derive(Debug, Clone, Deserialize)]
+    #[derive(Debug, Clone, Serialize,Deserialize)]
     #[serde(rename_all = "camelCase")]
     pub struct GeminiResponse {
         pub candidates: Vec<Candidate>,
@@ -402,7 +402,7 @@ pub mod response {
             text_count
         }
     }
-    #[derive(Debug, Clone, Deserialize)]
+    #[derive(Debug, Clone, Serialize,Deserialize)]
     #[serde(rename_all = "camelCase")]
     pub struct Candidate {
         pub content: Content,
@@ -410,18 +410,18 @@ pub mod response {
         pub index: Option<i32>,
         pub safety_ratings: Vec<SafetyRating>,
     }
-    #[derive(Debug, Clone, Deserialize)]
+    #[derive(Debug, Clone, Serialize,Deserialize)]
     #[serde(rename_all = "camelCase")]
     pub struct UsageMetadata {
         pub total_token_count: u64,
     }
-    #[derive(Debug, Clone, Deserialize)]
+    #[derive(Debug, Clone, Serialize,Deserialize)]
     pub struct PromptFeedback {
         #[serde(rename = "safetyRatings")]
         pub safety_ratings: Vec<SafetyRating>,
     }
 
-    #[derive(Debug, Clone, Deserialize)]
+    #[derive(Debug, Clone, Serialize,Deserialize)]
     pub struct SafetyRating {
         pub category: HarmCategory,
         pub probability: HarmProbability,
